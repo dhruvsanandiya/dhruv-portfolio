@@ -23,11 +23,6 @@
     flex-direction: column;
     width: 100%;
 
-    &--first,
-    &--second {
-      gap: 1.5rem;
-    }
-
     &--third {
       display: flex;
       justify-content: center;

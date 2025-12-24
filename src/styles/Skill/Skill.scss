@@ -69,9 +69,10 @@
     h1 {
       position: relative;
       display: inline-block;
-      // animation: headingAnimation 2.5s ease-in-out 1;
-      // animation-delay: 0.5s;
-      // animation-fill-mode: forwards;
+      animation: headingAnimation 2.5s ease-in-out 1;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      margin-bottom: 1em;
     }
   }
 

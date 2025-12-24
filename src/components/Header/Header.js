@@ -6,8 +6,10 @@ import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import "../../styles/Header/Header.scss";
 const Header = () => {
+  const navLinkHome = useRef();
   const navLinkAbout = useRef();
   const navLinkWork = useRef();
+  const navLinkSkill = useRef();
   const navLinkContact = useRef();
 
   useEffect(() => {
@@ -84,6 +86,17 @@ const Header = () => {
           </div>
           <div className="header__nav-links" id="header__nav-links">
             <ul>
+            <div className="header__nav-links-container">
+                <li
+                  className="header__route"
+                  ref={navLinkHome}
+                  data-aos="fade-down"
+                  data-aos-delay="0"
+                >
+                  <a href="/">Home</a>
+                </li>
+                <div className="header__route-bg"></div>
+              </div>
               <div className="header__nav-links-container">
                 <li
                   className="header__route"
@@ -103,6 +116,17 @@ const Header = () => {
                   data-aos-delay="200"
                 >
                   <a href="#work">Works</a>
+                </li>
+                <div className="header__route-bg"></div>
+              </div>
+              <div className="header__nav-links-container">
+                <li
+                  className="header__route"
+                  ref={navLinkSkill}
+                  data-aos="fade-down"
+                  data-aos-delay="0"
+                >
+                  <a href="#skill">Skills</a>
                 </li>
                 <div className="header__route-bg"></div>
               </div>

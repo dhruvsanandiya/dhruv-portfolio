@@ -20,22 +20,25 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <Header /> <Hero /> <Works /> <About /> <Skill /> <Contact />
-                <Footer />
-              </>
-            }
-          />
-          <Route exact path="/about/intro" element={<Intro />} />
-          <Route exact path="/about/experience" element={<Experience />} />
-          <Route exact path="/about/internships" element={<Internships />} />
-          <Route exact path="/about/graduation" element={<Graduation />} />
-        </Routes>
+        <Header />
+        <div className="app-content">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <>
+                  <Hero /> <Works /> <About /> <Skill /> <Contact />
+                  <Footer />
+                </>
+              }
+            />
+            <Route exact path="/about/intro" element={<Intro />} />
+            <Route exact path="/about/experience" element={<Experience />} />
+            <Route exact path="/about/internships" element={<Internships />} />
+            <Route exact path="/about/graduation" element={<Graduation />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </>
   );

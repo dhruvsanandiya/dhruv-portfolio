@@ -1,0 +1,16 @@
+// App wrapper to account for fixed header
+.app-content {
+  padding-top: 0; // No padding needed as each section handles its own spacing
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+// Smooth scroll behavior for anchor links
+html {
+  scroll-behavior: smooth;
+  
+  // Offset for fixed header when scrolling to anchors
+  scroll-padding-top: 100px;
+}
+

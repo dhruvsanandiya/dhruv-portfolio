@@ -24,6 +24,42 @@ const Header = () => {
     }
   });
 
+  // Handle smooth scroll for anchor links
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      const href = e.target.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const headerHeight = 90; // Adjust based on header height
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+        // Close mobile menu if open
+        const navLinksDisplay = document.getElementById("header__nav-links");
+        if (window.innerWidth <= 768 && navLinksDisplay.style.display === "flex") {
+          showHideNavbar();
+        }
+      }
+    };
+
+    const links = document.querySelectorAll(".header__route a");
+    links.forEach((link) => {
+      link.addEventListener("click", handleAnchorClick);
+    });
+
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("click", handleAnchorClick);
+      });
+    };
+  }, []);
+
   function showHideNavbar() {
     const navLinksDisplay = document.getElementById("header__nav-links");
     const iconMiddleLine = document.getElementById(

@@ -25,13 +25,11 @@
 
     &--first,
     &--second {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      height: 100%; // Match height of other columns
-      min-height: 100%; // Ensure it stretches
+      gap: 0rem;
     }
 
+    &--first,
+    &--second,
     &--third {
       display: flex;
       justify-content: center;

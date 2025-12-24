@@ -11,46 +11,51 @@ const Skill = () => {
     const container = ".tagcloud";
     let radii;
 
-    // If 3D Text Sphere is not showing up after deployment remove the return (i.e, return() =>{}) function from below code
-    return () => {
-      const texts = [
-        "JavaScript",
-        "TypeScript",
-        "Python",
-        "React",
-        "Next.js",
-        "Node.js",
-        "FastAPI",
-        "LangChain",
-        "OpenAI",
-        "PostgreSQL",
-        "MySQL",
-        "Redis",
-        "Docker",
-        "Git",
-        "Tailwind CSS",
-        "AI/GenAI",
-        "RAG",
-      ];
+    const texts = [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "React",
+      "Next.js",
+      "Node.js",
+      "FastAPI",
+      "LangChain",
+      "OpenAI",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Docker",
+      "Git",
+      "Tailwind CSS",
+      "AI/GenAI",
+      "RAG",
+    ];
 
-      // Decrasing 'radius' value for small screen devices
-      function radiusValue() {
-        if (window.screen.width <= 778) {
-          radii = 150;
-        } else {
-          radii = 290;
-        }
-        return radii;
+    // Decreasing 'radius' value for small screen devices
+    function radiusValue() {
+      if (window.innerWidth <= 778) {
+        radii = 150;
+      } else {
+        radii = 290;
       }
+      return radii;
+    }
 
-      const options = {
-        radius: radiusValue(),
-        maxSpeed: "normal",
-        initSpeed: "normal",
-        keep: true,
-      };
+    const options = {
+      radius: radiusValue(),
+      maxSpeed: "normal",
+      initSpeed: "normal",
+      keep: true,
+    };
 
-      TagCloud(container, texts, options);
+    TagCloud(container, texts, options);
+
+    // Cleanup function (optional, but good practice)
+    return () => {
+      const tagCloudElement = document.querySelector(container);
+      if (tagCloudElement) {
+        tagCloudElement.innerHTML = "";
+      }
     };
   }, []);
   return (

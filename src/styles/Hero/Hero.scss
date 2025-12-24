@@ -154,8 +154,6 @@
     width: 50%;
     z-index: 2;
     visibility: visible;
-    background-color: #000000;
-    overflow: hidden;
 
     &::after {
       position: absolute;
@@ -180,7 +178,7 @@
       min-width: 21em;
       margin-top: 10%;
       margin-right: 10%;
-      opacity: 0.85;
+      opacity: 0.9;
       // Use multiply blend mode to remove white background - white becomes transparent on black
       mix-blend-mode: multiply;
       // Adjust contrast and brightness to enhance the effect

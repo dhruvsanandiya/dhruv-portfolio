@@ -23,6 +23,15 @@
     flex-direction: column;
     width: 100%;
 
+    &--first,
+    &--second {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      height: 100%; // Match height of other columns
+      min-height: 100%; // Ensure it stretches
+    }
+    
     &--third {
       display: flex;
       justify-content: center;

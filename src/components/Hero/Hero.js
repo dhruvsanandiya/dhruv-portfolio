@@ -40,56 +40,63 @@ const Hero = () => {
                 data-aos="fade-up"
                 data-aos-delay="400"
               >
-                R
+                U
               </span>
               <span
                 className="hero__alphabet"
                 data-aos="fade-up"
                 data-aos-delay="600"
               >
-                O
+                L
               </span>
               <span
                 className="hero__alphabet"
                 data-aos="fade-up"
                 data-aos-delay="800"
               >
-                N
+                L
               </span>
               <span
                 className="hero__alphabet"
                 data-aos="fade-up"
                 data-aos-delay="1000"
               >
-                T
+                S
               </span>
               <span
                 className="hero__alphabet"
                 data-aos="fade-up"
                 data-aos-delay="1200"
               >
-                E
+                T
               </span>
               <span
                 className="hero__alphabet"
                 data-aos="fade-up"
                 data-aos-delay="1400"
               >
-                N
+                A
+              </span>
+              <span
+                className="hero__alphabet"
+                data-aos="fade-up"
+                data-aos-delay="1600"
+              >
+                C
               </span>
               <span
                 className="hero__alphabet hero__alphabet--last"
                 data-aos="fade-up"
-                data-aos-delay="1600"
+                data-aos-delay="1800"
               >
-                D
+                K
               </span>
               <span
                 className="hero__developer-text"
                 data-aos="zoom-out-down"
-                data-aos-delay="1800"
+                data-aos-delay="2000"
               >
-                <span className="hero__dev-text">Developer</span>
+                <span className="hero__dev-text">Developer & AI Engineer</span>
               </span>
             </p>
             <div
@@ -98,20 +105,18 @@ const Hero = () => {
               data-aos-delay="1800"
             >
               <p>
-                I'm a passionate and responsible{" "}
-                <span>front end developer</span>. Skilled in developing
-                responsive websites with elegant and efficient code.
+                Building scalable web platforms, AI-powered systems, and secure backend architectures.
               </p>
             </div>
 
             <div className="hero__buttons">
               <a
                 className="hero__know-btn"
-                href="#about"
+                href="#work"
                 data-aos="fade-up"
                 data-aos-delay="1800"
               >
-                Know more
+                View Projects
               </a>
               <a
                 className="hero__contact-btn"
@@ -119,7 +124,7 @@ const Hero = () => {
                 data-aos="fade-up"
                 data-aos-delay="2000"
               >
-                Contact me
+                Hire Me
               </a>
             </div>
           </div>

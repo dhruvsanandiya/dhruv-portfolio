@@ -14,15 +14,23 @@ const Skill = () => {
     // If 3D Text Sphere is not showing up after deployment remove the return (i.e, return() =>{}) function from below code
     return () => {
       const texts = [
-        "HTML",
-        "CSS",
         "JavaScript",
-        "React",
+        "TypeScript",
         "Python",
-        "C/C++",
-        "SQL",
-        "UI/UX Design",
-        "Responsive Design",
+        "React",
+        "Next.js",
+        "Node.js",
+        "FastAPI",
+        "LangChain",
+        "OpenAI",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "Git",
+        "Tailwind CSS",
+        "AI/GenAI",
+        "RAG",
       ];
 
       // Decrasing 'radius' value for small screen devices
@@ -102,35 +110,68 @@ const Skill = () => {
                   <h4>Languages</h4>
                   <ul>
                     <li>
-                      <span>C, C++, Python, PHP(Basic), SQL</span>
+                      <span>JavaScript (ES6+), TypeScript, Python, C, Java, SQL</span>
                     </li>
                   </ul>
                 </div>
                 <div className="skill__details">
-                  <h4>FrontEnd</h4>
+                  <h4>Frontend</h4>
                   <ul>
                     <li>
-                      <span>HTML5, CSS3, JavaScript, TypeScript</span>{" "}
+                      <span>React.js, Next.js, Redux Toolkit</span>
                     </li>
                     <li>
-                      {" "}
-                      <span>ReactJS, Tailwind CSS, Bootstrap</span>
+                      <span>Tailwind CSS, Material UI, HTML5, CSS3</span>
                     </li>
-                  </ul>
-                </div>
-                <div className="skill__details">
-                  <h4>BackEnd</h4>
-                  <ul>
                     <li>
-                      <span>Node.js, Express.js, MySQL ,RESTful APIs</span>
+                      <span>Responsive Design</span>
                     </li>
                   </ul>
                 </div>
                 <div className="skill__details">
-                  <h4>UI/UX & Design</h4>
+                  <h4>Backend</h4>
                   <ul>
                     <li>
-                      <span>Figma, Adobe After Effect</span>
+                      <span>Node.js, Express.js, ASP.NET Core Web API</span>
+                    </li>
+                    <li>
+                      <span>REST APIs, JWT Authentication, Role-Based Access Control</span>
+                    </li>
+                    <li>
+                      <span>Payment Gateway Integration (Razorpay, Stripe)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skill__details">
+                  <h4>Databases</h4>
+                  <ul>
+                    <li>
+                      <span>MySQL, PostgreSQL, MSSQL, Firebase, Redis (Vector DB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skill__details">
+                  <h4>AI & GenAI</h4>
+                  <ul>
+                    <li>
+                      <span>LangChain, RAG Architecture, Multi-Agent Systems</span>
+                    </li>
+                    <li>
+                      <span>OpenAI API, Gemini API, Hugging Face Transformers</span>
+                    </li>
+                    <li>
+                      <span>Prompt Engineering, Vector Search & Embeddings</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="skill__details">
+                  <h4>DevOps & Tools</h4>
+                  <ul>
+                    <li>
+                      <span>Git, GitHub, Docker, CI/CD</span>
+                    </li>
+                    <li>
+                      <span>Postman, Swagger, Firebase Cloud Functions, Vercel</span>
                     </li>
                   </ul>
                 </div>
@@ -153,3 +194,4 @@ const Skill = () => {
 };
 
 export default Skill;
+

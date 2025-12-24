@@ -74,8 +74,9 @@ const About = () => {
                 </h2>
                 <p>
                   I am <span>Dhruv Sanandiya.</span> <br />
-                  Highly passionate Front-End Developer & UI/UX Designer with
-                  strong problem-solving skills and design thinking approach.
+                  Full Stack Developer & AI Engineer specializing in fintech, ed-tech, and AI products. 
+                  Experienced in building scalable web platforms, AI-powered systems, and secure backend architectures 
+                  with focus on performance, security, and long-term maintainability.
                 </p>
               </Link>
             </div>
@@ -97,15 +98,13 @@ const About = () => {
                 </h2>
                 <p>
                   <span>
-                    React Developer Intern at Ruhiverse Technologies (Jan 2025 –
-                    Present).
+                    Full Stack Developer Intern at Xelentor Technologies (Jul 2025 – Sep 2025).
                   </span>
                   <br />
                   <span>
-                    Previously a UI/UX Intern at CodSoft (May 2024 – June 2024).
-                    Experience in building responsive, user-friendly
-                    applications using React.js, Tailwind CSS, and backend
-                    integrations.
+                    React.js Developer Intern at Ruhiverse Technologies (Jan 2025 – Jun 2025).
+                    Built production systems including loan management platforms, LMS systems, 
+                    AI trip planners, and RAG systems with strong backend logic and GenAI integration.
                   </span>
                 </p>
               </Link>
@@ -128,10 +127,10 @@ const About = () => {
                 </h2>
                 <ul>
                   <li>
-                    <span>Ruhiverse Technologies</span> – React Developer Intern
+                    <span>Xelentor Technologies</span> – Full Stack Developer Intern
                   </li>
                   <li>
-                    <span>CodSoft</span> – UI/UX Designer Intern
+                    <span>Ruhiverse Technologies</span> – React.js Developer Intern
                   </li>
                 </ul>
               </Link>

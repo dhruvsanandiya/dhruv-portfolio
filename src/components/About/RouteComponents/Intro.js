@@ -16,26 +16,26 @@ const Intro = () => {
           </div>
           <div className="about-intro__description">
             <p data-aos="fade-right">
-              I am <span>Dhruv Sanandiya</span>
+              I am <span>Dhruv Sanandiya</span>, a Full Stack Developer & AI Engineer based in Ahmedabad, Gujarat, India.
             </p>
             <p data-aos="fade-right" data-aos-delay="200">
-              A passionate React Developer and UI/UX enthusiast currently
-              pursuing a Bachelor's in Computer Science & Design at GCET.
+              I specialize in building scalable web platforms, AI-powered systems, and secure backend architectures 
+              for fintech, ed-tech, and AI products. With hands-on experience in production environments, I focus on 
+              performance, security, and long-term maintainability.
             </p>
             <p data-aos="fade-right" data-aos-delay="400">
-              With hands-on experience in building responsive, real-world web
-              applications using React.js, Tailwind CSS, PHP, and MySQL, I enjoy
-              turning complex ideas into clean and intuitive interfaces.
+              My expertise spans across full-stack development with React.js, Next.js, Node.js, and ASP.NET Core, 
+              along with advanced AI/GenAI integration using LangChain, RAG architectures, and multi-agent systems. 
+              I've built loan management systems, LMS platforms, AI trip planners, and RAG systems that handle real-world complexity.
             </p>
             <p data-aos="fade-right" data-aos-delay="600">
-              I’ve developed live systems like a Loan Management System and
-              Product Management Dashboard as part of internships at Ruhiverse
-              Technologies and CodSoft.
+              I'm passionate about creating robust backend logic, scalable APIs, and seamless GenAI integrations. 
+              Whether it's implementing JWT authentication, role-based access control, payment gateway integrations, 
+              or vector search systems, I ensure every solution is production-ready and maintainable.
             </p>
             <p data-aos="fade-right" data-aos-delay="800">
-              I also explore backend development with Node.js, Express.js, and
-              MySQL, and constantly upskill through certifications in DevOps,
-              React, and Machine Learning.
+              Available for freelance and remote opportunities, I bring a strong problem-solving approach and 
+              commitment to delivering high-quality, scalable solutions that drive business value.
             </p>
 
             <div className="about-intro__emoji">:&nbsp;)</div>

@@ -20,6 +20,33 @@ const Experience = () => {
           </div>
           <div className="experience__description">
             <div className="experience__main-box">
+              {/* Xelentor Technologies */}
+              <div className="experience__box">
+                <h2>Xelentor Technologies Pvt. Ltd.</h2>
+                <h3>
+                  <FontAwesomeIcon
+                    icon={faCalendarDays}
+                    className="experience__calendar"
+                  />
+                  &nbsp;&nbsp;Jul 2025 – Sep 2025
+                </h3>
+                <ul>
+                  <p>Full Stack Developer Intern - Responsible for -</p>
+                  <li data-aos="fade-right" data-aos-delay="200">
+                    <span>
+                      Built full-stack LMS using React.js, ASP.NET Core, and MSSQL with JWT authentication 
+                      and role-based access control.
+                    </span>
+                  </li>
+                  <li data-aos="fade-right" data-aos-delay="400">
+                    <span>
+                      Implemented automated certificate generation, optimized APIs for performance, 
+                      and created comprehensive dashboards for students and instructors.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
               {/* Ruhiverse Technologies */}
               <div className="experience__box">
                 <h2>Ruhiverse Technologies</h2>
@@ -28,48 +55,20 @@ const Experience = () => {
                     icon={faCalendarDays}
                     className="experience__calendar"
                   />
-                  &nbsp;&nbsp;Jan 2025 - Present
+                  &nbsp;&nbsp;Jan 2025 – Jun 2025
                 </h3>
                 <ul>
-                  <p>Responsible for -</p>
+                  <p>React.js Developer Intern - Responsible for -</p>
                   <li data-aos="fade-right" data-aos-delay="200">
                     <span>
-                      Developed a full-featured Loan Management System using
-                      React.js, integrated with PHP/MySQL APIs using Axios.
+                      Built loan management platform using React, Node.js, and MySQL with document verification 
+                      and EMI scheduling.
                     </span>
                   </li>
                   <li data-aos="fade-right" data-aos-delay="400">
                     <span>
-                      Enhanced UI/UX using Tailwind CSS, implemented role-based
-                      access, real-time search, and pagination.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* CodSoft */}
-              <div className="experience__box">
-                <h2>CodSoft</h2>
-                <h3>
-                  <FontAwesomeIcon
-                    icon={faCalendarDays}
-                    className="experience__calendar"
-                  />
-                  &nbsp;&nbsp;May 2024 - Jun 2024
-                </h3>
-                <ul>
-                  <p>Responsible for -</p>
-                  <li data-aos="fade-right" data-aos-delay="200">
-                    <span>
-                      Designed a Task Management App UI using Figma, focusing on
-                      user-centric features like task tracking and
-                      prioritization.
-                    </span>
-                  </li>
-                  <li data-aos="fade-right" data-aos-delay="400">
-                    <span>
-                      Created wireframes and interactive prototypes to ensure
-                      cross-device functionality and smooth user experience.
+                      Integrated Razorpay and Stripe payment gateways, implemented real-time notifications, 
+                      and developed secure authentication systems.
                     </span>
                   </li>
                 </ul>

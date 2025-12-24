@@ -23,6 +23,8 @@
     flex-direction: column;
     width: 100%;
 
+    &--first,
+    &--second,
     &--third {
       display: flex;
       justify-content: center;

@@ -33,25 +33,31 @@ const Contact = () => {
     e.preventDefault();
     setStatus({ submitting: true, submitted: false, error: false, message: "" });
 
-    const form = e.target;
-    const data = new FormData(form);
-
     try {
-      const response = await fetch("/", {
+      // Call Netlify Function to send email
+      const response = await fetch("/.netlify/functions/sendEmail", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data).toString(),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setStatus({
           submitting: false,
           submitted: true,
           error: false,
-          message: "Thank you! Your message has been sent successfully.",
+          message: "Thank you! Your message has been sent successfully. I'll get back to you soon.",
         });
         setFormData({ name: "", email: "", message: "" });
-        // Reset form after 5 seconds
+        // Reset status message after 5 seconds
         setTimeout(() => {
           setStatus({
             submitting: false,
@@ -61,14 +67,15 @@ const Contact = () => {
           });
         }, 5000);
       } else {
-        throw new Error("Form submission failed");
+        throw new Error(data.error || "Form submission failed");
       }
     } catch (error) {
+      console.error("Error:", error);
       setStatus({
         submitting: false,
         submitted: false,
         error: true,
-        message: "Sorry, there was an error sending your message. Please try again.",
+        message: "Sorry, there was an error sending your message. Please try again or contact me directly at sanandiyadhruv77@gmail.com",
       });
     }
   };
@@ -137,17 +144,8 @@ const Contact = () => {
             <div className="contact__form" data-aos="fade-up">
               <form
                 name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
               >
-                <input type="hidden" name="form-name" value="contact" />
-                <p style={{ display: "none" }}>
-                  <label>
-                    Don't fill this out if you're human: <input name="bot-field" />
-                  </label>
-                </p>
                 <p className="contact__form-group">
                   <label htmlFor="name">Name: </label>
                   <input

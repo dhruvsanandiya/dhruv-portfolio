@@ -47,6 +47,7 @@
     text-transform: uppercase;
     font-size: 2em;
     color: #ffffff;
+    margin-bottom: 1em;
 
     &::after {
       position: absolute;
@@ -56,6 +57,7 @@
       width: 10%;
       height: 0.05em;
       background-color: #00ffff;
+      margin-bottom: 1em;
     }
 
     h1 {
@@ -72,7 +74,6 @@
       animation: headingAnimation 2.5s ease-in-out 1;
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
-      margin-bottom: 1em;
     }
   }
 

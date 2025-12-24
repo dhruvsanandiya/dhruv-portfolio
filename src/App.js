@@ -28,7 +28,7 @@ function App() {
               path="/"
               element={
                 <>
-                  <Hero /> <Works /> <About /> <Skill /> <Contact />
+                  <Hero /> <About /> <Works /> <Skill /> <Contact />
                   <Footer />
                 </>
               }

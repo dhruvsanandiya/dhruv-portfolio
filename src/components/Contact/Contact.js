@@ -47,7 +47,12 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        throw new Error("Invalid response from server");
+      }
 
       if (response.ok) {
         setStatus({
@@ -67,7 +72,9 @@ const Contact = () => {
           });
         }, 5000);
       } else {
-        throw new Error(data.error || "Form submission failed");
+        // Use the error message from the server if available
+        const errorMessage = data?.error || `Server error (${response.status}). Please try again later.`;
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -75,7 +82,7 @@ const Contact = () => {
         submitting: false,
         submitted: false,
         error: true,
-        message: "Sorry, there was an error sending your message. Please try again or contact me directly at sanandiyadhruv77@gmail.com",
+        message: error.message || "Sorry, there was an error sending your message. Please try again or contact me directly at sanandiyadhruv77@gmail.com",
       });
     }
   };

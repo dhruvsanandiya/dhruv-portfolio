@@ -1,34 +1,96 @@
 const nodemailer = require("nodemailer");
 
 exports.handler = async (event, context) => {
+  // Handle CORS preflight requests
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({ error: "Method not allowed" }),
     };
   }
 
   try {
+    // Check if environment variables are set
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error("Missing environment variables");
+      return {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          error: "Server configuration error. Please contact the site administrator.",
+        }),
+      };
+    }
+
     // Parse the form data
-    const { name, email, message } = JSON.parse(event.body);
+    let body;
+    try {
+      body = JSON.parse(event.body);
+    } catch (parseError) {
+      return {
+        statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ error: "Invalid request format" }),
+      };
+    }
+
+    const { name, email, message } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
       return {
         statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
         body: JSON.stringify({ error: "All fields are required" }),
       };
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return {
+        statusCode: 400,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ error: "Invalid email format" }),
+      };
+    }
+
     // Create transporter using Gmail SMTP
-    // You'll need to set these environment variables in Netlify
+    // Note: GMAIL_APP_PASSWORD must be a 16-character App Password, not your regular password
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // Your Gmail address
-        pass: process.env.GMAIL_APP_PASSWORD, // Gmail App Password (not regular password)
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
+      // Add timeout and connection options
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
 
     // Email content
@@ -84,11 +146,19 @@ exports.handler = async (event, context) => {
     };
   } catch (error) {
     console.error("Error sending email:", error);
+    
+    // Don't expose internal error details to client
+    const errorMessage = error.message || "Unknown error occurred";
+    
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
-        error: "Failed to send email",
-        details: error.message,
+        error: "Failed to send email. Please try again later or contact directly at sanandiyadhruv77@gmail.com",
+        // Only include details in development
+        ...(process.env.NODE_ENV === "development" && { details: errorMessage }),
       }),
     };
   }

@@ -47,10 +47,23 @@ const Contact = () => {
         }),
       });
 
+      // Handle 404 specifically (function not available)
+      if (response.status === 404) {
+        throw new Error(
+          "Email service not available. Please use 'npm run dev' to start the development server with function support, or contact directly at sanandiyadhruv77@gmail.com"
+        );
+      }
+
       let data;
       try {
         data = await response.json();
       } catch (jsonError) {
+        // If response is not JSON, provide a helpful error
+        if (response.status === 503) {
+          throw new Error(
+            "Netlify functions server not available. Please run 'npm run dev' to start the development server with function support."
+          );
+        }
         throw new Error("Invalid response from server");
       }
 

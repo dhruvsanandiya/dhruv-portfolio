@@ -14,8 +14,9 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    align-items: stretch; // Make all columns same height
+    gap: 3rem;
+    align-items: center; // Align columns at the top
+    margin-top: 2em;
   }
 
   &__column {
@@ -25,17 +26,15 @@
 
     &--first,
     &--second {
-      gap: 5px;
+      gap: 0;
+      align-items: flex-start;
+      justify-content: center; // Vertically center content in column
     }
 
-    &--first,
-    &--second,
     &--third {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%; // Match height of other columns
-      min-height: 100%; // Ensure it stretches
+      justify-content: flex-start;
+      align-items: flex-start;
     }
   }
 
@@ -109,7 +108,7 @@
 
   &__details {
     margin-top: 0;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     
     &:first-child {
       margin-top: 0;
@@ -120,22 +119,39 @@
       letter-spacing: 0.1em;
       font-size: 1em;
       color: #00ffff;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.8em;
+      font-weight: 500;
     }
 
     ul {
-      list-style-position: inside;
-      margin-top: 0.2em;
-      margin-left: 1.5em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
       li {
         letter-spacing: 0.05em;
-        color: #00ffff;
-        list-style-position: outside;
-        margin-bottom: 0.3em;
+        margin-bottom: 0.5em;
+        padding-left: 1.2em;
+        position: relative;
+        
+        // Custom bullet point
+        &::before {
+          content: "•";
+          color: #00ffff;
+          position: absolute;
+          left: 0;
+          font-size: 1.2em;
+          line-height: 1.2;
+        }
+        
         span {
           color: #ffffff;
           font-family: "Lato", sans-serif;
           font-weight: 300;
+          font-size: 0.95em;
+          display: block;
+          line-height: 1.6;
+          
           b {
             font-weight: 400;
           }
@@ -217,7 +233,7 @@
     &__inner-container {
       grid-template-columns: 1fr;
       gap: 2rem;
-      align-items: start;
+      align-items: center;
     }
 
     &__header h1 {
@@ -253,7 +269,9 @@
         min-height: 200px;
         max-width: 200px;
       }
+
     }
+
   }
 
   @media (max-width: 480px) {
@@ -261,15 +279,13 @@
       font-size: 2rem;
     }
 
-    &__cloud {
-      min-width: 160px;
-      height: 250px;
+    // Hide the tag cloud column to prevent overlap with contact form
+    &__column--third {
+      display: none !important;
+    }
 
-      .tagcloud {
-        min-width: 160px;
-        min-height: 160px;
-        max-width: 160px;
-      }
+    &__cloud {
+      display: none !important;
     }
   }
 
@@ -285,18 +301,18 @@
     &__details ul li {
       font-size: 0.9rem;
     }
+    
+    &__cloud {
+      visibility: hidden;
+      display: none;
+    }
+
   }
 
   @media (max-width: 320px) {
     &__cloud {
-      min-width: 140px;
-      height: 220px;
-
-      .tagcloud {
-        min-width: 140px;
-        min-height: 140px;
-        max-width: 140px;
-      }
+      visibility: hidden;
+      display: none;
     }
   }
 
@@ -309,14 +325,8 @@
     }
 
     &__cloud {
-      min-width: 120px;
-      height: 200px;
-
-      .tagcloud {
-        min-width: 120px;
-        min-height: 120px;
-        max-width: 120px;
-      }
+      visibility: hidden;
+      display: none;
     }
   }
 }

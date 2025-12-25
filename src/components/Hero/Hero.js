@@ -91,12 +91,79 @@ const Hero = () => {
               >
                 K
               </span>
+            </p>
+            <p className="hero__animated-alphabet-box">
               <span
                 className="hero__developer-text"
                 data-aos="zoom-out-down"
-                data-aos-delay="2000"
+                data-aos-delay="200"
               >
-                <span className="hero__dev-text">Developer & AI Engineer</span>
+                <span className="hero__dev-text">
+                  Developer &{" "}
+                </span>{" "}
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  A
+                </span>
+                <span
+                  className="hero__alphabet hero__alphabet--last"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  I
+                </span>{" "}
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="600"
+                >
+                  E
+                </span>
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="800"
+                >
+                  N
+                </span>
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
+                  G
+                </span>
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="1200"
+                >
+                  I
+                </span>
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="1400"
+                >
+                  N
+                </span>
+                <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="1600"
+                >
+                  E
+                </span>
+                <span
+                  className="hero__alphabet hero__alphabet--last"
+                  data-aos="fade-up"
+                  data-aos-delay="1800"
+                >
+                  R
+                </span>
               </span>
             </p>
             <div

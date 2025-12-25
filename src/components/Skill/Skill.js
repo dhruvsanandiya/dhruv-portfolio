@@ -123,13 +123,7 @@ const Skill = () => {
                 <h4>Frontend</h4>
                 <ul>
                   <li>
-                    <span>React.js, Next.js, Redux Toolkit</span>
-                  </li>
-                  <li>
-                    <span>Tailwind CSS, Material UI, HTML5, CSS3</span>
-                  </li>
-                  <li>
-                    <span>Responsive Design</span>
+                    <span>React.js, Next.js, Redux Toolkit, Tailwind CSS, Material UI, HTML5, CSS3, Responsive Design</span>
                   </li>
                 </ul>
               </div>
@@ -137,14 +131,9 @@ const Skill = () => {
                 <h4>Backend</h4>
                 <ul>
                   <li>
-                    <span>Node.js, Express.js, ASP.NET Core Web API</span>
+                    <span>Node.js, Express.js, ASP.NET Core Web API, REST APIs, JWT Authentication, Role-Based Access Control, Payment Gateway Integration (Razorpay, Stripe)</span>
                   </li>
-                  <li>
-                    <span>REST APIs, JWT Authentication, Role-Based Access Control</span>
-                  </li>
-                  <li>
-                    <span>Payment Gateway Integration (Razorpay, Stripe)</span>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -163,25 +152,18 @@ const Skill = () => {
                 <h4>AI & GenAI</h4>
                 <ul>
                   <li>
-                    <span>LangChain, RAG Architecture, Multi-Agent Systems</span>
+                    <span>LangChain, RAG Architecture, Multi-Agent Systems, OpenAI API, Gemini API, Hugging Face Transformers, Prompt Engineering, Vector Search & Embeddings</span>
                   </li>
-                  <li>
-                    <span>OpenAI API, Gemini API, Hugging Face Transformers</span>
-                  </li>
-                  <li>
-                    <span>Prompt Engineering, Vector Search & Embeddings</span>
-                  </li>
+                  
                 </ul>
               </div>
               <div className="skill__details">
                 <h4>DevOps & Tools</h4>
                 <ul>
                   <li>
-                    <span>Git, GitHub, Docker, CI/CD</span>
+                    <span>Git, GitHub, Docker, CI/CD, Postman, Swagger, Firebase Cloud Functions, Vercel</span>
                   </li>
-                  <li>
-                    <span>Postman, Swagger, Firebase Cloud Functions, Vercel</span>
-                  </li>
+                  
                 </ul>
               </div>
             </div>

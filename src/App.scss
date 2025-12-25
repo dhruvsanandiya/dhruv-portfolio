@@ -4,6 +4,15 @@
   min-height: 100vh;
   position: relative;
   z-index: 1;
+  transition: filter 0.3s ease-in-out;
+}
+
+// Blur effect when navigation menu is open (mobile only)
+@media screen and (max-width: 768px) {
+  body.nav-menu-open .app-content {
+    filter: blur(5px);
+    pointer-events: none; // Prevent interaction with blurred content
+  }
 }
 
 // Smooth scroll behavior for anchor links

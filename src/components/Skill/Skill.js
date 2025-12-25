@@ -43,7 +43,7 @@ const Skill = () => {
 
     const options = {
       radius: radiusValue(),
-      maxSpeed: "normal",
+      maxSpeed: "fast",
       initSpeed: "normal",
       keep: true,
     };

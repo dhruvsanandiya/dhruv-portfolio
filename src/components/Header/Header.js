@@ -69,21 +69,33 @@ const Header = () => {
     const iconBottomLine = document.getElementById(
       "header__hamburger-bottom-line"
     );
+    const body = document.body;
+    const backdropOverlay = document.getElementById("header__backdrop-overlay");
+    
     if (navLinksDisplay.style.display === "flex") {
       navLinksDisplay.style.display = "none";
       iconMiddleLine.style.display = "inline-block";
       iconTopLine.classList.remove("header__icon-line-animate");
       iconBottomLine.classList.remove("header__icon-bottom-line-animate");
+      body.classList.remove("nav-menu-open");
+      if (backdropOverlay) {
+        backdropOverlay.style.display = "none";
+      }
     } else {
       navLinksDisplay.style.display = "flex";
       iconMiddleLine.style.display = "none";
       iconTopLine.classList.add("header__icon-line-animate");
       iconBottomLine.classList.add("header__icon-bottom-line-animate");
+      body.classList.add("nav-menu-open");
+      if (backdropOverlay) {
+        backdropOverlay.style.display = "block";
+      }
     }
   }
 
   return (
     <>
+      <div className="header__backdrop-overlay" id="header__backdrop-overlay" onClick={showHideNavbar}></div>
       <div className="header">
         <div className="header__container">
           <div className="header__logo">

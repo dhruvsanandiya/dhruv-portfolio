@@ -158,6 +158,13 @@ const Hero = () => {
                   E
                 </span>
                 <span
+                  className="hero__alphabet"
+                  data-aos="fade-up"
+                  data-aos-delay="1600"
+                >
+                  E
+                </span>
+                <span
                   className="hero__alphabet hero__alphabet--last"
                   data-aos="fade-up"
                   data-aos-delay="1800"

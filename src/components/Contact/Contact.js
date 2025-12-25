@@ -34,8 +34,12 @@ const Contact = () => {
     setStatus({ submitting: true, submitted: false, error: false, message: "" });
 
     try {
-      // Call Netlify Function to send email
-      const response = await fetch("/.netlify/functions/sendEmail", {
+      // Determine API endpoint based on deployment platform
+      // Try Vercel API route first (for Vercel deployments), then fallback to Netlify function
+      const apiEndpoint = "/api/sendEmail";
+      
+      // Call serverless function to send email
+      const response = await fetch(apiEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,10 +51,16 @@ const Contact = () => {
         }),
       });
 
-      // Handle 404 specifically (function not available)
+      // Handle specific status codes
       if (response.status === 404) {
         throw new Error(
-          "Email service not available. Please use 'npm run dev' to start the development server with function support, or contact directly at sanandiyadhruv77@gmail.com"
+          "Email service not available. Please contact directly at sanandiyadhruv77@gmail.com"
+        );
+      }
+
+      if (response.status === 405) {
+        throw new Error(
+          "Method not allowed. Please contact directly at sanandiyadhruv77@gmail.com"
         );
       }
 
@@ -61,10 +71,10 @@ const Contact = () => {
         // If response is not JSON, provide a helpful error
         if (response.status === 503) {
           throw new Error(
-            "Netlify functions server not available. Please run 'npm run dev' to start the development server with function support."
+            "Email service temporarily unavailable. Please try again later or contact directly at sanandiyadhruv77@gmail.com"
           );
         }
-        throw new Error("Invalid response from server");
+        throw new Error(`Invalid response from server (${response.status}). Please try again or contact directly at sanandiyadhruv77@gmail.com`);
       }
 
       if (response.ok) {

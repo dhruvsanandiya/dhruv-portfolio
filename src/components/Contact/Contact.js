@@ -34,46 +34,46 @@ const Contact = () => {
     setStatus({ submitting: true, submitted: false, error: false, message: "" });
 
     try {
-      // Try Netlify function endpoint first (for local dev with netlify dev)
-      // Then fallback to Vercel API route (for Vercel deployments)
-      const endpoints = ["/.netlify/functions/sendEmail", "/api/sendEmail"];
-      let response = null;
+      // Detect environment: if hostname contains vercel.app, use Vercel API route
+      // Otherwise, use Netlify function endpoint (for local dev and Netlify deployments)
+      const isVercel = window.location.hostname.includes('vercel.app');
+      const primaryEndpoint = isVercel ? "/api/sendEmail" : "/.netlify/functions/sendEmail";
+      const fallbackEndpoint = isVercel ? "/.netlify/functions/sendEmail" : "/api/sendEmail";
+      
+      let response;
+      let endpoint = primaryEndpoint;
+      
+      // Try primary endpoint first
+      response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-      for (const endpoint of endpoints) {
-        try {
-          response = await fetch(endpoint, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: formData.name,
-              email: formData.email,
-              message: formData.message,
-            }),
-          });
-
-          // If we get a successful response (not 404), use it
-          if (response.status !== 404) {
-            break;
-          }
-          // If 404 and this is the last endpoint, we'll handle it below
-          if (endpoint === endpoints[endpoints.length - 1]) {
-            break;
-          }
-          // Otherwise, continue to next endpoint
-        } catch (fetchError) {
-          // If this isn't the last endpoint, try the next one
-          if (endpoint !== endpoints[endpoints.length - 1]) {
-            continue;
-          }
-          // If this is the last endpoint and we still have an error, throw it
-          throw fetchError;
-        }
+      // If we get 404 or 405, try the fallback endpoint
+      if ((response.status === 404 || response.status === 405) && endpoint !== fallbackEndpoint) {
+        endpoint = fallbackEndpoint;
+        response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        });
       }
 
-      // Handle specific status codes
-      if (!response || response.status === 404) {
+      // Handle specific status codes after trying both endpoints
+      if (response.status === 404) {
         throw new Error(
           "Email service not available. Please contact directly at sanandiyadhruv77@gmail.com"
         );
